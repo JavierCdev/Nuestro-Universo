@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080612">
+  <meta name="description" content="Un pequeño universo hecho de recuerdos, detalles y razones para sonreír.">
+  <title>Nuestro Universo ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <div id="universe" aria-label="Universo 3D interactivo"></div>
+  <div class="vignette"></div><div class="grain"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">✦</span><span>Nuestro universo</span></div>
+    <div class="top-actions">
+      <button class="icon-button" id="motion-toggle" aria-label="Pausar animaciones" title="Pausar animaciones">Ⅱ</button>
+      <button class="icon-button" id="help-button" aria-label="Ver instrucciones" title="Instrucciones">?</button>
+    </div>
+  </header>
+  <main class="hero">
+    <div class="eyebrow">un lugar solo nuestro</div>
+    <h1>Dos almas,<br><em>un universo.</em></h1>
+    <p class="subtitle">Hay pequeños detalles que hacen inmenso un universo. Acércate a las estrellas y descubre los que guardo para ti.</p>
+  </main>
+  <div class="hint"><span class="hint-dot"></span><span>Explora · toca una estrella para descubrir un mensaje</span></div>
+  <footer class="bottom-bar">
+    <div class="bottom-note">Hecho de pequeños detalles<br>y un cariño infinito<br><span class="dedication">para mi Rollito de Canela ♡</span></div>
+    <div class="counter"><strong id="found-count">00</strong> / <span id="total-count">80</span> DESCUBIERTOS</div>
+  </footer>
+
+  <section class="intro" id="intro" aria-labelledby="intro-title">
+    <div class="intro-card">
+      <div class="orbit-icon">✧</div>
+      <div class="eyebrow">una pequeña sorpresa</div>
+      <h2 id="intro-title">Bienvenida a<br>nuestro universo</h2>
+      <p>Un espacio creado para recordarte que, entre tantas estrellas, hay detalles tuyos que hacen que todo brille diferente.</p>
+      <button class="primary-button" id="enter-button">ENTRAR AL UNIVERSO <span>↗</span></button>
+    </div>
+  </section>
+
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="message-title" aria-describedby="message-body">
+    <article class="message-card">
+      <button class="close-button" id="close-button" aria-label="Cerrar mensaje">×</button>
+      <div class="message-icon" id="message-icon">♡</div>
+      <div class="message-kicker">un detalle que me encanta</div>
+      <h2 class="message-title" id="message-title">Tu sonrisa</h2>
+      <p class="message-body" id="message-body">Tu sonrisa hace que hasta los días más comunes tengan algo extraordinario.</p>
+      <div class="modal-actions">
+        <button class="secondary-button" id="another-button">Descubrir otro ✦</button>
+        <button class="secondary-button" id="share-button">Copiar mensaje ↗</button>
+      </div>
+    </article>
+  </div>
+  <button class="edit-fab" id="edit-fab">✎ Editar frases</button>
+  <section class="editor" id="editor" role="dialog" aria-modal="true" aria-labelledby="editor-title">
+    <div class="editor-panel">
+      <div class="editor-head">
+        <h2 id="editor-title">Editar frases</h2>
+        <input type="search" id="editor-search" placeholder="Buscar…" aria-label="Buscar frase">
+        <button class="close-button" id="editor-close" aria-label="Cerrar editor" style="position:static;flex:none">×</button>
+      </div>
+      <div class="editor-list" id="editor-list"></div>
+      <textarea id="export-box" readonly></textarea>
+      <div class="editor-foot">
+        <button class="primary-button" id="editor-save">GUARDAR Y APLICAR</button>
+        <button class="secondary-button" id="editor-copy">Copiar código</button>
+        <button class="secondary-button" id="editor-reset">Restablecer</button>
+        <div class="grow">Se guarda solo en este navegador. Para dejarlo fijo para todos, usa «Copiar código» y pégalo en js/frases.js.</div>
+      </div>
+    </div>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="loading" id="loading"></div>
+  <div class="fallback" id="fallback">Tu navegador no pudo iniciar la escena 3D. Recarga la página o prueba con un navegador actualizado.</div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
